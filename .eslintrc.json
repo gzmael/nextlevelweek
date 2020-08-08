@@ -36,7 +36,8 @@
         "tsx": "never"
       }
     ],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/prop-types": [2, { "ignore": ["children"] }]
   },
   "settings": {
     "import/resolver": {
