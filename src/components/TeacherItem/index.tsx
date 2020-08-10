@@ -2,6 +2,7 @@ import React from 'react';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
 export interface Teacher {
   avatar: string;
@@ -17,12 +18,14 @@ interface TeacherItemProps {
   teacher: Teacher;
 }
 
-const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+const TeacherItem: React.FC<TeacherItemProps> = ({
+  teacher,
+}: TeacherItemProps) => {
   // eslint-disable-next-line react/prop-types
   const { avatar, bio, cost, id, name, subject, whatsapp } = teacher;
 
   function createNewConnection() {
-    console.log('Criou conexão');
+    api.post('connection', { user_id: teacher.id });
   }
   return (
     <article className="teacher-item">
